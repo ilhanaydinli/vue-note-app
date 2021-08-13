@@ -1,9 +1,9 @@
 <template>
-  <v-main>
-    <div>Ana sayfa</div>
-  </v-main>
+  <div>Ana sayfa</div>
 </template>
 
 <script>
-export default {};
+export default {
+  name: "Home",
+};
 </script>

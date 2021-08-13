@@ -1,16 +1,21 @@
 <template>
   <v-app>
-    <SidebarVue />
-    <router-view />
+    <sidebar-vue />
+    <content-vue>
+      <router-view />
+    </content-vue>
   </v-app>
 </template>
 
 
 <script>
-import SidebarVue from "./components/Sidebar.vue";
+import ContentVue from "./components/ContentVue.vue";
+import SidebarVue from "./components/SidebarVue.vue";
 export default {
+  name: "App",
   components: {
     SidebarVue,
+    ContentVue,
   },
 };
 </script>

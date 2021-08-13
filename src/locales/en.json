@@ -1,0 +1,9 @@
+{
+  "noteEdit": "Note Edit",
+  "noteAdd": "Note Add",
+  "title": "Title",
+  "content": "Content",
+  "save": "Save",
+  "clear": "Clear",
+  "requiredMsg": "{name} is required."
+}

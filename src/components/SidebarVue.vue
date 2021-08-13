@@ -41,8 +41,7 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "Sidebar",
+};
 </script>
-
-<style>
-</style>

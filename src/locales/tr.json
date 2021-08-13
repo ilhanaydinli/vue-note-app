@@ -1,0 +1,9 @@
+{
+  "noteEdit": "Not Düzenle",
+  "noteAdd": "Not Ekle",
+  "title": "Başlık",
+  "content": "İçerik",
+  "save": "Kaydet",
+  "clear": "Temizle",
+  "requiredMsg": "{name} alanı gereklidir."
+}

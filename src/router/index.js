@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Notlar from '../views/Notlar.vue'
-import NotEkle from '../views/NotEkle.vue'
+import Notes from '../views/Notes.vue'
+import NoteAdd from '../views/NoteAdd.vue'
 
 Vue.use(VueRouter)
 
@@ -14,17 +14,17 @@ const routes = [{
   {
     path: '/notlar',
     name: 'Notlar',
-    component: Notlar
+    component: Notes
   },
   {
     path: '/notekle',
     name: 'NotEkle',
-    component: NotEkle
+    component: NoteAdd
   },
   {
     path: '/notduzenle/:id',
     name: 'NotDuzenle',
-    component: NotEkle
+    component: NoteAdd
   },
 ]
 
