@@ -5,5 +5,8 @@
   "content": "İçerik",
   "save": "Kaydet",
   "clear": "Temizle",
-  "requiredMsg": "{name} alanı gereklidir."
+  "requiredMsg": "{name} alanı gereklidir.",
+  "homePage": "Ana Sayfa",
+  "notes": "Notlar",
+  "newNote": "Yeni Not"
 }

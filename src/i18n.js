@@ -1,23 +1,30 @@
 import Vue from 'vue'
+import store from './store'
 import VueI18n from 'vue-i18n'
 
 Vue.use(VueI18n)
 
-function loadLocaleMessages () {
-  const locales = require.context('./locales', true, /[A-Za-z0-9-_,\s]+\.json$/i)
-  const messages = {}
-  locales.keys().forEach(key => {
-    const matched = key.match(/([A-Za-z0-9-_]+)\./i)
-    if (matched && matched.length > 1) {
-      const locale = matched[1]
-      messages[locale] = locales(key)
-    }
-  })
-  return messages
+const i18n = new VueI18n({
+  locale: 'tr',
+  messages: {}
+})
+
+/**
+ * @param {String} locale
+ */
+export async function loadMessages (locale) {
+  if (Object.keys(i18n.getLocaleMessage(locale)).length === 0) {
+    const messages = await import(/* webpackChunkName: '' */ `./locales/${locale}`)
+    i18n.setLocaleMessage(locale, messages)
+  }
+
+  if (i18n.locale !== locale) {
+    i18n.locale = locale
+  }
 }
 
-export default new VueI18n({
-  locale: process.env.VUE_APP_I18N_LOCALE || 'tr',
-  fallbackLocale: process.env.VUE_APP_I18N_FALLBACK_LOCALE || 'tr',
-  messages: loadLocaleMessages()
-})
+(async function () {
+  await loadMessages(store.getters['lang/locale'])
+})()
+
+export default i18n

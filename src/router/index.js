@@ -9,7 +9,7 @@ Vue.use(VueRouter)
 const routes = [{
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
   },
   {
     path: '/notlar',
@@ -19,7 +19,7 @@ const routes = [{
   {
     path: '/notekle',
     name: 'NotEkle',
-    component: NoteAdd
+    component: NoteAdd,
   },
   {
     path: '/notduzenle/:id',

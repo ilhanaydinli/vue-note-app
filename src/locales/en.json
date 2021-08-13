@@ -5,5 +5,8 @@
   "content": "Content",
   "save": "Save",
   "clear": "Clear",
-  "requiredMsg": "{name} is required."
+  "requiredMsg": "{name} is required.",
+  "homePage": "Home Page",
+  "notes": "Notes",
+  "newNote": "New Note"
 }

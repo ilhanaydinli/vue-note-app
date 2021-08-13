@@ -22,19 +22,19 @@
         <v-list-item-icon>
           <v-icon>mdi-home</v-icon>
         </v-list-item-icon>
-        <v-list-item-title>Ana Sayfa</v-list-item-title>
+        <v-list-item-title>{{ $t("homePage") }}</v-list-item-title>
       </v-list-item>
       <v-list-item link @click="$router.push({ path: '/notlar' })">
         <v-list-item-icon>
           <v-icon>mdi-book</v-icon>
         </v-list-item-icon>
-        <v-list-item-title>Notlarım</v-list-item-title>
+        <v-list-item-title>{{ $t("notes") }}</v-list-item-title>
       </v-list-item>
       <v-list-item link @click="$router.push({ name: 'NotEkle' })">
         <v-list-item-icon>
           <v-icon>mdi-book-plus</v-icon>
         </v-list-item-icon>
-        <v-list-item-title>Yeni Not Ekle</v-list-item-title>
+        <v-list-item-title>{{ $t("newNote") }}</v-list-item-title>
       </v-list-item>
     </v-list>
   </v-navigation-drawer>

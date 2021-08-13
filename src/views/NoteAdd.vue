@@ -32,7 +32,7 @@
             {{ $t("save") }}
           </v-btn>
 
-          <v-btn color="primary" @click="clear">{{ $t("clear") }} </v-btn>
+          <v-btn color="primary" @click="clear">{{ $t("clear") }}</v-btn>
         </v-form>
       </v-col>
     </v-row>

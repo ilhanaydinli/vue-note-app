@@ -1,5 +1,5 @@
 <template>
-  <div>Ana sayfa</div>
+  <div>{{ $t("homePage") }}</div>
 </template>
 
 <script>

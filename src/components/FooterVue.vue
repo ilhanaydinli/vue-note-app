@@ -6,8 +6,9 @@
       </v-col>
       <v-col class="primary lighten text-center white--text" cols="1">
         <v-select
-          v-model="$i18n.locale"
-          :items="langs"
+          @change="setLocale"
+          :value="locale"
+          :items="Object.keys(locales)"
           dark
           height="10"
         ></v-select>
@@ -17,13 +18,26 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+import { loadMessages } from "../i18n";
+
 export default {
   name: "FooterVue",
   data() {
     return { langs: ["tr", "en"] };
   },
+  computed: mapGetters({
+    locale: "lang/locale",
+    locales: "lang/locales",
+  }),
+  methods: {
+    setLocale(locale) {
+      if (this.$i18n.locale !== locale) {
+        loadMessages(locale);
+
+        this.$store.dispatch("lang/setLocale", { locale });
+      }
+    },
+  },
 };
 </script>
-
-<style scoped>
-</style>
