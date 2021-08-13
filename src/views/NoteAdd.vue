@@ -45,6 +45,12 @@ import Utils from "../utils";
 
 export default {
   name: "NoteAdd",
+  metaInfo() {
+    if (this.$route.params.id) {
+      return { title: this.$t("noteEdit") };
+    }
+    return { title: this.$t("noteAdd") };
+  },
   data: () => ({
     valid: false,
     title: null,

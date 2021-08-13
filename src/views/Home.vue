@@ -5,5 +5,8 @@
 <script>
 export default {
   name: "Home",
+  metaInfo() {
+    return { title: this.$t("homePage") };
+  },
 };
 </script>

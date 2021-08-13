@@ -59,6 +59,9 @@
 import notlarDatasi from "../data";
 export default {
   name: "Notes",
+  metaInfo() {
+    return { title: this.$t("notes") };
+  },
   data: () => ({
     dialogDelete: false,
     notlar: notlarDatasi,

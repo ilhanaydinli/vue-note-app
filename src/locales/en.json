@@ -7,6 +7,7 @@
   "clear": "Clear",
   "requiredMsg": "{name} is required.",
   "homePage": "Home Page",
+  "note": "Note",
   "notes": "Notes",
   "newNote": "New Note"
 }

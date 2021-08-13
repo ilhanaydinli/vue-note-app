@@ -3,8 +3,10 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Notes from '../views/Notes.vue'
 import NoteAdd from '../views/NoteAdd.vue'
+import Meta from 'vue-meta'
 
 Vue.use(VueRouter)
+Vue.use(Meta)
 
 const routes = [{
     path: '/',

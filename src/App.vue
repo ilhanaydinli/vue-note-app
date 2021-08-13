@@ -13,6 +13,12 @@ import ContentVue from "./components/ContentVue.vue";
 import SidebarVue from "./components/SidebarVue.vue";
 export default {
   name: "App",
+  metaInfo() {
+    return {
+      title: "Vue " + this.$t("note") + " App",
+      titleTemplate: "%s | Vue " + this.$t("note") + " App",
+    };
+  },
   components: {
     SidebarVue,
     ContentVue,

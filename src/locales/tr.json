@@ -7,6 +7,7 @@
   "clear": "Temizle",
   "requiredMsg": "{name} alanı gereklidir.",
   "homePage": "Ana Sayfa",
+  "note": "Not",
   "notes": "Notlar",
   "newNote": "Yeni Not"
 }
