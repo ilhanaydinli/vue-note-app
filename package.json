@@ -11,6 +11,7 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "js-cookie": "^3.0.0",
+    "register-service-worker": "^1.7.1",
     "vue": "^2.6.11",
     "vue-i18n": "^8.25.0",
     "vue-localstorage": "^0.6.2",
@@ -22,6 +23,7 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-pwa": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
@@ -58,11 +60,6 @@
       "parser": "babel-eslint"
     }
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ],
   "prettier": {
     "semi": false,
     "singleQuote": true,
@@ -71,5 +68,10 @@
     "printWidth": 80,
     "arrowParens": "always",
     "bracketSpacing": true
-  }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
 }
