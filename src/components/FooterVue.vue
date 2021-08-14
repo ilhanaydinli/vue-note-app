@@ -19,7 +19,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import { loadMessages } from "../i18n";
+import { loadMessages } from "../plugins/i18n";
 
 export default {
   name: "FooterVue",
