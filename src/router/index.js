@@ -8,10 +8,11 @@ import Meta from 'vue-meta'
 Vue.use(VueRouter)
 Vue.use(Meta)
 
-const routes = [{
+const routes = [
+  {
     path: '/',
     name: 'Home',
-    component: Home,
+    component: Home
   },
   {
     path: '/notlar',
@@ -21,13 +22,13 @@ const routes = [{
   {
     path: '/notekle',
     name: 'NotEkle',
-    component: NoteAdd,
+    component: NoteAdd
   },
   {
     path: '/notduzenle/:id',
     name: 'NotDuzenle',
     component: NoteAdd
-  },
+  }
 ]
 
 const router = new VueRouter({

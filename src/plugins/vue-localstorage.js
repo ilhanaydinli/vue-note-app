@@ -1,7 +1,6 @@
-import Vue from 'vue';
+import Vue from 'vue'
 import VueLocalStorage from 'vue-localstorage'
 
-Vue.use(VueLocalStorage);
+Vue.use(VueLocalStorage)
 
-export default new VueLocalStorage({
-});
+export default new VueLocalStorage({})

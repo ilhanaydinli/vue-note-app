@@ -6,14 +6,13 @@
 </template>
 
 <script>
-import FooterVue from "./FooterVue.vue";
+import FooterVue from './FooterVue.vue'
 export default {
-  name: "ContentVue",
+  name: 'ContentVue',
   components: {
-    FooterVue,
-  },
-};
+    FooterVue
+  }
+}
 </script>
 
-<style>
-</style>
+<style></style>

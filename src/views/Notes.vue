@@ -56,31 +56,31 @@
 </template>
 
 <script>
-import notlarDatasi from "../data";
+import notlarDatasi from '../data'
 export default {
-  name: "Notes",
+  name: 'Notes',
   metaInfo() {
-    return { title: this.$t("notes") };
+    return { title: this.$t('notes') }
   },
   data: () => ({
     dialogDelete: false,
     notlar: notlarDatasi,
-    silinecekId: null,
+    silinecekId: null
   }),
   methods: {
     sil() {
-      var index = notlarDatasi.findIndex((not) => not.id == this.silinecekId);
-      notlarDatasi.splice(index, 1);
-      this.modalKapat();
+      var index = notlarDatasi.findIndex((not) => not.id == this.silinecekId)
+      notlarDatasi.splice(index, 1)
+      this.modalKapat()
     },
     modalAc(id) {
-      this.silinecekId = id;
-      this.dialogDelete = true;
+      this.silinecekId = id
+      this.dialogDelete = true
     },
     modalKapat() {
-      this.dialogDelete = false;
-      this.silinecekId = null;
-    },
-  },
-};
+      this.dialogDelete = false
+      this.silinecekId = null
+    }
+  }
+}
 </script>

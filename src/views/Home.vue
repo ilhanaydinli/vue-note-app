@@ -1,12 +1,12 @@
 <template>
-  <div>{{ $t("homePage") }}</div>
+  <div>{{ $t('homePage') }}</div>
 </template>
 
 <script>
 export default {
-  name: "Home",
+  name: 'Home',
   metaInfo() {
-    return { title: this.$t("homePage") };
-  },
-};
+    return { title: this.$t('homePage') }
+  }
+}
 </script>
