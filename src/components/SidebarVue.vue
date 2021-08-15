@@ -18,19 +18,19 @@
     <v-divider></v-divider>
 
     <v-list nav dense>
-      <v-list-item link @click="$router.push({ path: '/' })">
+      <v-list-item link :to="{ path: '/' }">
         <v-list-item-icon>
           <v-icon>mdi-home</v-icon>
         </v-list-item-icon>
         <v-list-item-title>{{ $t('homePage') }}</v-list-item-title>
       </v-list-item>
-      <v-list-item link @click="$router.push({ path: '/notlar' })">
+      <v-list-item link :to="{ path: '/notes' }">
         <v-list-item-icon>
           <v-icon>mdi-book</v-icon>
         </v-list-item-icon>
         <v-list-item-title>{{ $t('notes') }}</v-list-item-title>
       </v-list-item>
-      <v-list-item link @click="$router.push({ name: 'NotEkle' })">
+      <v-list-item link :to="{ name: 'NoteAdd', params: { type: 'add' } }">
         <v-list-item-icon>
           <v-icon>mdi-book-plus</v-icon>
         </v-list-item-icon>

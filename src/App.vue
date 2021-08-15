@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import ContentVue from './components/ContentVue.vue'
 import SidebarVue from './components/SidebarVue.vue'
 export default {
@@ -21,6 +22,12 @@ export default {
   components: {
     SidebarVue,
     ContentVue
+  },
+  methods: {
+    ...mapActions('notes', ['getNotes'])
+  },
+  created() {
+    this.getNotes()
   }
 }
 </script>

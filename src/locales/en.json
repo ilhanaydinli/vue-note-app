@@ -9,5 +9,8 @@
   "homePage": "Home Page",
   "note": "Note",
   "notes": "Notes",
-  "newNote": "New Note"
+  "newNote": "New Note",
+  "areYouDelete": "Are you sure you want to delete?",
+  "delete": "Delete",
+  "cancel": "Cancel"
 }

@@ -9,5 +9,8 @@
   "homePage": "Ana Sayfa",
   "note": "Not",
   "notes": "Notlar",
-  "newNote": "Yeni Not"
+  "newNote": "Yeni Not",
+  "areYouDelete": "Silmek istediğinize emin misiniz?",
+  "delete": "Sil",
+  "cancel": "İptal"
 }

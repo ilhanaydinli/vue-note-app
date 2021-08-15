@@ -40,8 +40,8 @@
 </template>
 
 <script>
-import notlarDatasi from '../data'
-import Utils from '../utils'
+import { mapActions, mapGetters } from 'vuex'
+import Utils from '../utils/helper'
 
 export default {
   name: 'NoteAdd',
@@ -54,57 +54,75 @@ export default {
   data: () => ({
     valid: false,
     title: null,
-    content: null,
-    notlar: notlarDatasi
+    content: null
   }),
+  props: {
+    type: {
+      type: String,
+      default: ''
+    }
+  },
+  watch: {
+    type(val) {
+      if (val == 'add') {
+        this.clear()
+      }
+    }
+  },
+  computed: {
+    ...mapGetters('notes', ['getNoteId']),
+    reqiredRule(name = '') {
+      return [(v) => !!v || this.$t('requiredMsg', { name: name })]
+    }
+  },
   methods: {
+    ...mapActions('notes', ['addNote', 'editNote']),
     clear() {
       this.$refs.form.reset()
     },
     save() {
-      if (this.$route.params.id) {
-        //düzenleme
-        var buldugumNotIndexi = this.notlar.findIndex(
-          (not) => not.id == this.$route.params.id
-        )
-        notlarDatasi[buldugumNotIndexi] = {
-          id: this.$route.params.id,
-          title: this.title,
-          content: this.content
-        }
-      } else {
-        //ekleme
-        notlarDatasi.push({
-          id: Utils.uuidv4(),
-          title: this.title,
-          content: this.content
-        })
+      let note = {
+        id: this.$route.params.id ? this.$route.params.id : Utils.uuidv4(),
+        title: this.title,
+        content: this.content
       }
-      this.$router.push({ name: 'Notlar' })
+      if (this.$route.params.id) {
+        this.editNote({ note: note })
+      } else {
+        this.addNote({ note: note })
+      }
+      this.$router.push({ name: 'Notes' })
     }
   },
-  computed: {
-    reqiredRule(name = '') {
-      const de = this.$t.bind(this)
-      console.log(de)
-      return [(v) => !!v || this.$t('requiredMsg', { name: name })]
+  created() {
+    if (this.$route.params.id) {
+      var note = this.getNoteId(this.$route.params.id)
+      this.title = note.title
+      this.content = note.content
     }
+    console.log('created')
+  },
+  beforeCreate() {
+    console.log('beforeCreate')
+  },
+  beforeMount() {
+    console.log('beforeMount')
   },
   mounted() {
-    if (this.$route.params.id) {
-      var buldugumNot = this.notlar.find(
-        (not) => not.id == this.$route.params.id
-      )
-      this.title = buldugumNot.title
-      this.content = buldugumNot.content
-    }
+    console.log('mounted')
+  },
+  beforeUpdate() {
+    console.log('beforeUpdate')
+  },
+  updated() {
+    console.log('updated')
+  },
+  beforeDestroy() {
+    console.log('beforeDestroy')
+  },
+  destroyed() {
+    console.log('destroyed')
   }
-  /*beforeUpdate() {
-    if (!this.$route.params.id) {
-      this.title = null;
-      this.content = null;
-    }
-  },*/
 }
 </script>
 

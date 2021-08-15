@@ -1,12 +1,12 @@
 <template>
   <v-container class="py-2 px-2" fluid>
     <v-row>
-      <v-col v-for="nott in notlar" :key="nott.id" cols="3">
+      <v-col v-for="(note, index) in notes" :key="note.id" cols="3">
         <v-card class="mx-auto my-12" max-width="374">
-          <v-card-title>{{ nott.title }}</v-card-title>
+          <v-card-title>{{ note.title }}</v-card-title>
 
           <v-card-text>
-            {{ nott.content }}
+            {{ note.content }}
           </v-card-text>
 
           <v-divider class="mx-4"></v-divider>
@@ -19,7 +19,7 @@
               x-small
               color="cyan"
               @click="
-                $router.push({ name: 'NotDuzenle', params: { id: nott.id } })
+                $router.push({ name: 'NoteEdit', params: { id: note.id } })
               "
             >
               <v-icon dark> mdi-pencil </v-icon>
@@ -30,7 +30,7 @@
               dark
               x-small
               color="red"
-              @click="modalAc(nott.id)"
+              @click="modalOpen(index)"
             >
               <v-icon dark> mdi-delete </v-icon>
             </v-btn>
@@ -42,12 +42,16 @@
     <v-dialog v-model="dialogDelete" max-width="500px">
       <v-card>
         <v-card-title class="text-h5">
-          Silmek istediğinize emin misiniz?
+          {{ $t('areYouDelete') }}
         </v-card-title>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="blue darken-1" text @click="modalKapat"> Cancel </v-btn>
-          <v-btn color="blue darken-1" text @click="sil"> OK </v-btn>
+          <v-btn color="blue darken-1" text @click="modalClose">
+            {{ $t('cancel') }}
+          </v-btn>
+          <v-btn color="blue darken-1" text @click="sil">
+            {{ $t('delete') }}
+          </v-btn>
           <v-spacer></v-spacer>
         </v-card-actions>
       </v-card>
@@ -56,7 +60,8 @@
 </template>
 
 <script>
-import notlarDatasi from '../data'
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
   name: 'Notes',
   metaInfo() {
@@ -64,22 +69,25 @@ export default {
   },
   data: () => ({
     dialogDelete: false,
-    notlar: notlarDatasi,
-    silinecekId: null
+    delIndex: null
   }),
+  computed: {
+    ...mapGetters('notes', ['notes'])
+  },
   methods: {
+    ...mapActions('notes', ['getNotes', 'delNote']),
     sil() {
-      var index = notlarDatasi.findIndex((not) => not.id == this.silinecekId)
-      notlarDatasi.splice(index, 1)
-      this.modalKapat()
+      this.delNote({ id: this.delIndex })
+      this.modalClose()
     },
-    modalAc(id) {
-      this.silinecekId = id
+
+    modalOpen(id) {
+      this.delIndex = id
       this.dialogDelete = true
     },
-    modalKapat() {
+    modalClose() {
       this.dialogDelete = false
-      this.silinecekId = null
+      this.delIndex = null
     }
   }
 }
