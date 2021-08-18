@@ -1,8 +1,12 @@
 <template>
-  <v-main>
-    <slot></slot>
+  <div>
+    <v-main>
+      <v-container fluid>
+        <slot></slot>
+      </v-container>
+    </v-main>
     <footer-vue />
-  </v-main>
+  </div>
 </template>
 
 <script>

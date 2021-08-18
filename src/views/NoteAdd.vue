@@ -1,42 +1,40 @@
 <template>
-  <v-container class="py-2 px-2" fluid>
-    <v-row align="center" justify="center">
-      <v-col cols="6" class="mt-15">
-        <center v-if="$route.params.id">
-          <h1>{{ $t('noteEdit') }}</h1>
-        </center>
-        <center v-else>
-          <h1>{{ $t('noteAdd') }}</h1>
-        </center>
-        <v-form ref="form" v-model="valid">
-          <v-text-field
-            v-model="title"
-            :label="this.$t('title')"
-            :rules="[
-              (v) => !!v || this.$t('requiredMsg', { name: this.$t('title') })
-            ]"
-            clearable
-            required
-          ></v-text-field>
+  <v-row align="center" justify="center">
+    <v-col lg="8">
+      <center v-if="$route.params.id">
+        <h1>{{ $t('noteEdit') }}</h1>
+      </center>
+      <center v-else>
+        <h1>{{ $t('noteAdd') }}</h1>
+      </center>
+      <v-form ref="form" v-model="valid">
+        <v-text-field
+          v-model="title"
+          :label="this.$t('title')"
+          :rules="[
+            (v) => !!v || this.$t('requiredMsg', { name: this.$t('title') })
+          ]"
+          clearable
+          required
+        ></v-text-field>
 
-          <v-textarea
-            :label="this.$t('content')"
-            name="content"
-            required
-            v-model="content"
-            clearable
-            :rules="[(v) => !!v || 'Content is required']"
-          ></v-textarea>
+        <v-textarea
+          :label="this.$t('content')"
+          name="content"
+          required
+          v-model="content"
+          clearable
+          :rules="[(v) => !!v || 'Content is required']"
+        ></v-textarea>
 
-          <v-btn color="success" class="mr-4" @click="save" :disabled="!valid">
-            {{ $t('save') }}
-          </v-btn>
+        <v-btn color="success" class="mr-4" @click="save" :disabled="!valid">
+          {{ $t('save') }}
+        </v-btn>
 
-          <v-btn color="primary" @click="clear">{{ $t('clear') }}</v-btn>
-        </v-form>
-      </v-col>
-    </v-row>
-  </v-container>
+        <v-btn color="primary" @click="clear">{{ $t('clear') }}</v-btn>
+      </v-form>
+    </v-col>
+  </v-row>
 </template>
 
 <script>

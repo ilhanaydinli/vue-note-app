@@ -1,8 +1,8 @@
 <template>
-  <v-container class="py-2 px-2" fluid>
+  <div>
     <v-row>
-      <v-col v-for="(note, index) in notes" :key="note.id" cols="3">
-        <v-card class="mx-auto my-12" max-width="374">
+      <v-col v-for="(note, index) in notes" :key="note.id" lg="4">
+        <v-card>
           <v-card-title>{{ note.title }}</v-card-title>
 
           <v-card-text>
@@ -56,7 +56,7 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-  </v-container>
+  </div>
 </template>
 
 <script>
