@@ -1,4 +1,5 @@
 import LocalStorage from '../../utils/localStorage'
+import NProgress from 'nprogress'
 
 // state
 export const state = {
@@ -16,10 +17,12 @@ export const getters = {
 // mutations
 export const mutations = {
   setNotes(state, { notes, localSet = true }) {
+    NProgress.start()
     state.notes = notes
     if (localSet) {
       LocalStorage.set('notes', notes)
     }
+    NProgress.done()
   }
 }
 
